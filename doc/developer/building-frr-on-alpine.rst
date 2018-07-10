@@ -1,4 +1,4 @@
-Alpine Linux 3.7+
+Alpine Linux 3.8
 =========================================================
 
 For building Alpine Linux dev packages, we use docker.

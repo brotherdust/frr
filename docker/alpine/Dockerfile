@@ -1,4 +1,4 @@
-FROM alpine:3.7 as source-builder
+FROM alpine:3.8 as source-builder
 ARG commit
 RUN apk add --no-cache abuild acct alpine-sdk attr autoconf automake bash \
     binutils binutils-libs bison bsd-compat-headers build-base \
@@ -27,7 +27,7 @@ COPY --from=source-builder /src/*.tar.gz /src/alpine/* /src/tools/etc/frr/daemon
 RUN adduser -D -G abuild builder && chown -R builder /dist /pkgs
 USER builder
 RUN /usr/bin/alpine-build.sh
-FROM alpine:3.7
+FROM alpine:3.8
 RUN mkdir -p /pkgs/apk
 COPY --from=alpine-builder /pkgs/apk/ /pkgs/apk/
 RUN apk add --no-cache tini
