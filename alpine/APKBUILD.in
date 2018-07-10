@@ -9,7 +9,7 @@ license="GPL-2.0"
 depends="json-c c-ares ipsec-tools iproute2 python py-ipaddr bash"
 makedepends="ncurses-dev net-snmp-dev gawk texinfo perl
     acct autoconf automake bash
-    binutils binutils-libs bison bsd-compat-headers build-base
+    binutils bison bsd-compat-headers build-base
     c-ares c-ares-dev ca-certificates cryptsetup-libs curl
     device-mapper-libs expat fakeroot flex fortify-headers gdbm
     git gmp isl json-c-dev kmod lddtree libacl libatomic libattr

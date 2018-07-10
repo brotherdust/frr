@@ -1,7 +1,7 @@
 FROM alpine:3.8 as source-builder
 ARG commit
 RUN apk add --no-cache abuild acct alpine-sdk attr autoconf automake bash \
-    binutils binutils-libs bison bsd-compat-headers build-base \
+    binutils bison bsd-compat-headers build-base \
     c-ares c-ares-dev ca-certificates cryptsetup-libs curl \
     device-mapper-libs expat fakeroot flex fortify-headers g++ gcc gdbm \
     git gmp isl json-c json-c-dev kmod lddtree libacl libatomic libattr \
@@ -19,7 +19,7 @@ RUN (cd /src && \
 		--enable-numeric-version \
 		--with-pkg-extra-version=_git$commit && \
 	make dist)
-FROM alpine:3.7 as alpine-builder
+FROM alpine:3.8 as alpine-builder
 RUN apk add --no-cache abuild alpine-sdk && mkdir -p /pkgs/apk
 ADD docker/alpine/alpine-build.sh /usr/bin/
 ADD docker/alpine/builder /etc/sudoers.d
